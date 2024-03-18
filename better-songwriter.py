@@ -44,7 +44,7 @@ def generate_lyrics():
             lyrics_text.update()  # Update the text widget
 
     # Add information about class members before the last line
-    lyrics_text.insert(tk.END, "BY CLASS XI A (2023-24)\nISHIRAJ PALCHAUDHURI\nSUBHRA CHAKRABORTI\nSWARNABHA CHANDA\nTITAS GURIA\n")
+    lyrics_text.insert(tk.END, "BY CLASS XI A (2023-24)\nISHIRAJ PALCHAUDHURI [18]\nSUBHRA CHAKRABORTI [40]\nSWARNABHA CHANDA [42]\nTITAS GURIA [43]\n")
     lyrics_text.insert(tk.END, "-------------------------------------------------------------\n\n")
 
 def open_custom_lyrics():
@@ -59,21 +59,27 @@ def open_custom_lyrics():
 root = tk.Tk()
 root.title("Lyrics Generator")
 
+# Set window size to 1000x800 pixels
+root.geometry("800x700")
+
 # Introduction
 intro = "Once upon a time, in land of words, lived the Songwriter!\n"
 intro += "Welcome, traveler, to the realm of Sentence Sorcerer: The Textual Tinkerer!\n"
 intro += "Prepare to embark on an enchanting journey through the art of lyrics generation!\n"
-intro += "\n-----------------------------\n"
-lyrics_text = tk.Text(root, width=80, height=20)  # Define lyrics_text before calling slow_print
-lyrics_text.pack(side=tk.TOP, padx=10, pady=10)  # Pack lyrics_text widget
+intro += "\n-------------------------------------------------------------\n"
+lyrics_text = tk.Text(root, width=80, height=20, font=("Times New Roman", 15))  # Set font size to 15
+lyrics_text.pack(side=tk.TOP, padx=10, pady=10, fill=tk.BOTH, expand=True)  # Pack lyrics_text widget
 slow_print(intro)  # Call slow_print after lyrics_text is defined
 
 # Customize button style
 button_style = {
-    "bg": "dark blue",
-    "fg": "gold",
-    "activeforeground": "gold",
-    "font": ("Comic Sans MS", 10, "bold")
+    "bg": "gold",
+    "fg": "dark blue",
+    "activebackground": "dark blue",
+    "activeforeground": "white",
+    "font": ("Josefin Sans", 18),
+    "borderwidth": 2,
+    "relief": "raised"
 }
 
 # Button to generate lyrics
@@ -86,7 +92,7 @@ custom_button.pack(side=tk.TOP, padx=10, pady=10)
 
 # Additional text below the button
 additional_text = "Class XI A - Ishiraj, Subhra, Swarnabha & Titas"
-additional_label = tk.Label(root, text=additional_text, fg="black", font=("Times New Roman", 8), bg="white")
+additional_label = tk.Label(root, text=additional_text, fg="black", font=("Times New Roman", 12), bg="white")
 additional_label.pack(side=tk.TOP, padx=10, pady=(0, 20), fill=tk.X)
 
 # Run the Tkinter event loop
